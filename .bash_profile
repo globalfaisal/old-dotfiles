@@ -27,19 +27,19 @@ emojis=("🛶" "🍏" "🦎" "🥗" "🌱" "🐉" "🌵")
 
 EMOJI=${emojis[$RANDOM % ${#emojis[@]} ]}
 
+# Styling the prompt
 print_before_the_prompt () {
     user_host="$USER@$HOST_NAME"
     dir=$PWD
     home=$HOME
     dir=${dir/"$HOME"/"~"}
-    
-    printf "\n $txtgrn%s: $bldyel%s $txtred%s\n$txtrst" "$user_host" "$dir" "$(vcprompt)"
+     printf "\n $txtgrn%s: $bldyel%s $txtred%s\n$txtrst" "$user_host" "$dir" "$(vcprompt)"
 }
 
 PROMPT_COMMAND=print_before_the_prompt
 PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-# Styling the prompt
+
 #PS1='\n'                       # new line
 PS1="\[\033[32m\]"             # change to green
 PS1="$PS1"' └──'               # add └── character
@@ -49,29 +49,25 @@ PS1="$PS1"'\[\033[32m\]'       # change to green
 PS1="$PS1"'➤  '                # forward arrow
 PS1="$PS1"'\[\033[0m\]'        # change to white
 
-
-function mkcd()
-{
-	mkdir $1 && cd $1
-}
-
 # -------
 # Aliases
 # -------
-alias 🧪="git checkout -b experimental"
-alias vsc='code .'
-alias ns='npm start'
-alias nr='npm run'
-alias nis='npm i -S'
-alias nid='npm i -D'
+alias vsc='code .' # open with vs code
+alias ns='npm start' # npm start
+alias nr='npm run' # npm run
+alias nis='npm i -S' # npm install --save
+alias nid='npm i -D' # npm install --save dev
 alias l="ls" # List files in current directory
 alias ll="ls -al" # List all files in current directory in long list format
 alias o="open ." # Open the current directory in Finder
-alias cl="clear" 
+alias cl="clear" # clear
+alias cdqb="cd $HOME/workspace/qb/" # cd to ~/workspace/qb
+alias cddev="cd $HOME/workspace/dev/" # cd to ~/workspace/dev
 
 # ----------------------
 # Git Aliases
 # ----------------------
+alias 🧪="git checkout -b experimental"
 alias ga='git add'
 alias gaa='git add .'
 alias gaaa='git add -A'
@@ -83,6 +79,9 @@ alias gl='git log'
 alias gp='git pull'
 alias gpsh='git push'
 alias gss='git status -s'
+
+# Git completion
+ [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 # auto added by nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
