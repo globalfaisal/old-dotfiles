@@ -1,5 +1,43 @@
 [user]
-	email = faisal.mohamoud89@gmail.com
-	name = globalfaisal			
+	email = ""
+	name = ""
+
 [core]
-	editor = vim
+  editor = vim
+  pager = less -FRSX
+  autocrlf = input
+
+[pull]
+  ff = only
+
+[pager]
+  # Install the "diff-so-fancy" NPM package to use it for nicer diffs.
+  # https://github.com/so-fancy/diff-so-fancy
+  diff = diff-so-fancy | less --tabs=2 -RFX
+  show = diff-so-fancy | less --tabs=2 -RFX
+
+[alias]
+  aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+  branch-name = "!git rev-parse --abbrev-ref HEAD"
+  push-branch = "!git push -u origin $(git branch-name)"
+  delete-gone-branches = "!git branch --list --format '%(if:equals=[gone])%(upstream:track)%(then)%(refname:short)%(end)' | grep . | xargs git branch -D"
+  clean-branches = "!echo '\n---- Fetch ----\n' && git fetch && echo '\n---- Prune remote branches ----\n' && git remote prune origin && echo '\n---- Delete [gone] local branches ----\n' && git delete-gone-branches && echo"
+  l = log --pretty='format:%C(magenta)%ar%Creset %C(blue)%an%Creset%C(dim):%Creset%C(bold green)%d%Creset %s %C(dim)%h%Creset' --graph
+  undo = reset --soft HEAD~1 # Removes the last commit and keeps the changes.
+  bl= "!git branch -a"
+  coe="!git checkout -b experimental"
+  aa="!git add ."
+  aaa="!git add -A"
+  aam="!git add -u"
+  cm="!git commit"
+  cmv="!git commit --verbose"
+  cmm="!git commit -m"
+  st="!git status"
+  sts="!git status -s"
+  stsh="!git stash save -m"
+  stshl="!git stash list"
+  co="!git checkout"
+  cob="!git checkout -b"
+  cop="!git checkout @{-1}"
+  gp="!git pull"
+
