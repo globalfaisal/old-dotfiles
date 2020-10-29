@@ -57,28 +57,14 @@ alias ns='npm start' # npm start
 alias nr='npm run' # npm run
 alias nis='npm i -S' # npm install --save
 alias nid='npm i -D' # npm install --save dev
-alias l="ls" # List files in current directory
-alias ll="ls -al" # List all files in current directory in long list format
-alias o="open ." # Open the current directory in Finder
-alias cl="clear" # clear
-alias cdqb="cd $HOME/workspace/qb/" # cd to ~/workspace/qb
-alias cddev="cd $HOME/workspace/dev/" # cd to ~/workspace/dev
+alias l='ls' # List files in current directory
+alias ll='ls -al' # List all files in current directory in long list format
+alias o='open .' # Open the current directory in Finder
+alias cl='clear' # clear
+alias cdqb='cd $HOME/workspace/qb/' # cd to ~/workspace/qb
+alias cddev='cd $HOME/workspace/dev/' # cd to ~/workspace/dev
+alias svgoid='svgo -f . -p 4 --multipass --enable=prefixIds'
 
-# ----------------------
-# Git Aliases
-# ----------------------
-alias 🧪="git checkout -b experimental"
-alias ga='git add'
-alias gaa='git add .'
-alias gaaa='git add -A'
-alias gc='git commit'
-alias gcm='git commit -m'
-alias gd='git diff'
-alias gi='git init'
-alias gl='git log'
-alias gp='git pull'
-alias gpsh='git push'
-alias gss='git status -s'
 
 # Git completion
  [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
