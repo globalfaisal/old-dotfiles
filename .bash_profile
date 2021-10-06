@@ -71,3 +71,7 @@ alias svgoid='svgo -f . -p 4 --multipass --enable=prefixIds'
 
 # auto added by nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Android Studio 
+export ANDROID_SDK=/Users/faisal/Library/Android/sdk
+export PATH=/Users/faisal/Library/Android/sdk/platform-tools:$PATH
